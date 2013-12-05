@@ -1,0 +1,14 @@
+{
+  "manifest_version":2,
+  "name": "Seo Previewer",
+  "version": "1.0",
+  "description": "Show Seo Tags",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "css":["bootstrap.css"],
+      "js": ["jquery-1.10.2.min.js", "seo_previewer.js"]
+    }
+  ],
+  "web_accessible_resources": ["jquery-1.10.2.min.js", "seo_previewer.js"]
+}
