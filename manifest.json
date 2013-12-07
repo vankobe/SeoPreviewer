@@ -5,10 +5,18 @@
   "description": "Show Seo Tags",
   "content_scripts": [
     {
-      "matches": ["http://*/*"],
+      "matches": ["*://*/*"],
       "css":["bootstrap.css"],
-      "js": ["jquery-1.10.2.min.js", "seo_previewer.js"]
+      "js": ["jquery-1.10.2.min.js", "contentScript.js"]
     }
   ],
-  "web_accessible_resources": ["jquery-1.10.2.min.js", "seo_previewer.js"]
+  "web_accessible_resources": ["jquery-1.10.2.min.js", "seo_previewer.js"],
+  "background": {
+    "scripts": ["jquery-1.10.2.min.js", "eventPage.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "favicon.png"
+//    "default_popup": "popup.html"
+  }
 }
