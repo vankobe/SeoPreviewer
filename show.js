@@ -17,6 +17,9 @@ $(function(){
 			var image = $("<image>").attr("src", seo_object[seo_tag]);
 			td = $("<td>").append(image)
 		}
+		if (seo_object[seo_tag] == false){
+			var td = $('<td>').css({"background-color": "#FFEFD5"});
+		}
 		tbody.append(tr.append(th).append(td))
 	};
 	div.append(table.append(tbody));
