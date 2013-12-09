@@ -20,8 +20,10 @@ SeoPreview = {
 		console.log("find")
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
 			chrome.tabs.sendMessage(tabs[0].id, {model: "SeoPreview", method: "find"}, function(response){
+				// set_data on LocalStorage
 				SeoPreview.set_data(response, "SeoPreview");
-				SeoPreviewController.show();
+				// show.htmlをpopupに登録
+				chrome.browserAction.setPopup({popup: "show.html"})
 			})
 		})
 	},
@@ -36,22 +38,13 @@ SeoPreview = {
 }
 var SeoPreviewController = {};
 SeoPreviewController = {
-
-	prepare: function(){
-		console.log("prepare")
+	set_popup: function(){
+		console.log("set_popup")
 		// DOMからSEOタグ情報を引っ張る(SeoPreviewモデルの情報をとるイメージ)
 		SeoPreview.find();
-
-
-	},
-	show: function(){
-		console.log("show")
-		// show.htmlをpopupに登録(render show.htmlするイメージ)
-		chrome.browserAction.setPopup({popup: "show.html"})
 	}
-
 }
 // タブが変われば、データを取得する
-chrome.tabs.onActivated.addListener(SeoPreviewController.prepare);
-// ボタンがクリックされたら、表示する
-chrome.browserAction.onClicked.addListener(SeoPreviewController.show);
+chrome.tabs.onActivated.addListener(SeoPreviewController.set_popup);
+// タブが変化すれば、データを取得する
+chrome.tabs.onUpdated.addListener(SeoPreviewController.set_popup);

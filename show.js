@@ -1,5 +1,4 @@
 $(function(){
-	chrome.browserAction.setPopup({popup: ""})
 	var seo_object = {}
 	if (localStorage.getItem("SeoPreview") != "undefined"){
 		seo_object = JSON.parse(localStorage.getItem("SeoPreview"));　
