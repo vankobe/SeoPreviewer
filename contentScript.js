@@ -23,7 +23,6 @@ $(function(){
 var SeoPreview = {};
 SeoPreview ={
 	find: function(){
-		console.log("find_model")
 		seo_object = {};
 		seo_object = {
 			h1 : $("h1").text() || false,
@@ -44,7 +43,6 @@ SeoPreview ={
 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendMessage){
-		console.log("get_request")
 		model = eval(request.model);
 		method = request.method;
 		data = model[method]();

@@ -17,7 +17,6 @@ chrome.runtime.onMessage.addListener(
 var SeoPreview = {};
 SeoPreview = {
 	find: function(){
-		console.log("find")
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
 			chrome.tabs.sendMessage(tabs[0].id, {model: "SeoPreview", method: "find"}, function(response){
 				// set_data on LocalStorage
@@ -28,8 +27,6 @@ SeoPreview = {
 		})
 	},
 	set_data: function(data, key){
-		console.log("set_data")
-		console.log(data)
 		// response"SeoPreview"をキーとして、localStorageに格納
 		if (data){
 	  		localStorage.setItem(key, JSON.stringify(data));
@@ -39,7 +36,6 @@ SeoPreview = {
 var SeoPreviewController = {};
 SeoPreviewController = {
 	set_popup: function(){
-		console.log("set_popup")
 		// DOMからSEOタグ情報を引っ張る(SeoPreviewモデルの情報をとるイメージ)
 		SeoPreview.find();
 	}
