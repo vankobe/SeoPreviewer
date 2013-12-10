@@ -37,7 +37,7 @@ SeoPreview ={
 			og_image : $('meta[property="og:image"]').attr("content") || false,
 			og_description : $('meta[property="og:description"]').attr("content") || false
 		};
-		return seo_object;	
+		return seo_object;
 	}
 }
 
@@ -48,4 +48,4 @@ chrome.runtime.onMessage.addListener(
 		data = model[method]();
 		sendMessage(data);
 	}
-)
+);

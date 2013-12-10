@@ -22,7 +22,7 @@ SeoPreview = {
 				// set_data on LocalStorage
 				SeoPreview.set_data(response, "SeoPreview");
 				// show.htmlをpopupに登録
-				chrome.browserAction.setPopup({popup: "show.html"})
+				chrome.browserAction.setPopup({popup: "show.html"});
 			})
 		})
 	},
