@@ -10,8 +10,16 @@ $(function(){
 	var tbody = $("<tbody>");
 	for (var seo_tag in seo_object) {
 		var tr = $('<tr>');
-		var th = $("<th>").text(seo_tag);
-		var td = $('<td>').text(seo_object[seo_tag]);
+		var title = seo_tag
+		if (seo_object[seo_tag] && seo_tag != "og_image"){
+	 		title = seo_tag + "(" + seo_object[seo_tag].length +")"
+		}
+		var th = $("<th>").text(title);
+		var content = seo_object[seo_tag]
+		if (content && content.split(",")){
+			content = content.split("###").join("</br>")
+		}
+		var td = $('<td>').html(content);
 
 		if (seo_tag ==="og_image") {
 			var image = $("<image>").attr("src", seo_object[seo_tag]).css({width: "116px", height: "116px"});
