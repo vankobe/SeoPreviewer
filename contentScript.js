@@ -9,8 +9,8 @@ SeoPreview ={
 		}
 		seo_object = {
 			title : $("title").text() || false,
-			h1 : $("h1").text() || false,
-			h2 : h2_str || false,
+			h1 : $("h1").text() || $("h1").find("img").attr("alt") || false,
+			h2 : h2_str || $("h2").find("img").attr("alt") || false,
 			description : $("meta[name=description]").attr("content") || false,
 			keywords : $("meta[name=keywords]").attr("content") || false,
 			url : document.URL || false,
