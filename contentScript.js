@@ -24,6 +24,7 @@ SeoPreview ={
 			h3 : h3_str || $("h3").find("img").attr("alt") || false,
 			description : $("meta[name=description]").attr("content") || false,
 			keywords : $("meta[name=keywords]").attr("content") || false,
+			robots : $("meta[name=robots]").attr("content") || false,
 			url : document.URL || false,
 			canonical : $("link[rel=canonical]").attr("href") || false,
 			prev : $("link[rel=prev]").attr("href") || false,
